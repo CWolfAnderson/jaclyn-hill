@@ -17,6 +17,10 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
+  height: 200px;
+}
+
+.jumbotron-christmas h1 {
   color: white;
   -webkit-text-stroke: 2px red;
 }
@@ -30,4 +34,9 @@ iframe {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
+}
+
+footer {
+  margin-top: 80px;
+  text-align: center;
 }

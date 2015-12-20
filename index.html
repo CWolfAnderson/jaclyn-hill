@@ -14,19 +14,20 @@
 </head>
 <body>
   
+  
   <div class="container">
     <div class="jumbotron jumbotron-christmas">
       <h1>Merry Christmas Lisa!</h1>
+      <a href="pages/favorites.html" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Favorites</a>
     </div>
     
     <div class="main" ng-controller="videoController">
-      
       
       <div ng-repeat="video in videos" class="center">
         <h3>{{video.title}}</h3>
         <iframe width="560" height="315" ng-src="{{getIframeSrc(video.url)}}" frameborder="0" allowfullscreen></iframe>
         
-        <button type="button" class="btn btn-info favorite-button" ng-if="video.favorite === false" ng-click="favorite($index)">
+        <button type="button" class="btn btn-default favorite-button" ng-if="video.favorite === false" ng-click="favorite($index)">
           <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span> favorite
         </button>
         
@@ -41,9 +42,17 @@
       </div>
     </div>
     
+    <footer>
+      <hr>
+      <p>Made with <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> by Christoph for Lisa</p>
+      <p>Christmas 2015</p>
+    </footer>
+    
   </div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-<script src="js/scripts.js" charset="utf-8"></script>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+  <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>  
+  <script src="js/scripts.js" charset="utf-8"></script>
 </body>
 </html>

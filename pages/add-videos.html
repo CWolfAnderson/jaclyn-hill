@@ -2,44 +2,41 @@
 <html lang="en" ng-app="bestOfJacHill">
 <head>
   <meta charset="UTF-8">
-  <title>Favorites</title>
+  <title>Add Videos</title>
   <link rel="shortcut icon" type="image/png" href="http://sheersense.com/wp-content/uploads/2014/09/kiss-proof-smudge-proof-budge-proof-make-lipstick-icon.png"/>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <link rel="stylesheet" href="../css/styles.css">
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   
+  <style>
+  input {
+    width: 400px;
+  }
+  </style>
 </head>
 <body>
   
   <div class="container">
-    <div class="jumbotron jumbotron-christmas">
-      <h1>Lisa's Favorites</h1>
-      <a href="../index.html" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a>      
-    </div>
+    
     
     <div class="main" ng-controller="videoController">
       
-      
-      <div ng-repeat="video in videos" class="center" ng-if="video.favorite">
-        <h3>{{video.title}}</h3>
-        <iframe width="560" height="315" ng-src="{{getIframeSrc(video.url)}}" frameborder="0" allowfullscreen></iframe>
-        
-        <button type="button" class="btn btn-info favorite-button" ng-if="!video.favorite" ng-click="favorite($index)">
-          <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span> favorite
-        </button>
-        
-        <button type="button" class="btn btn-info favorite-button" ng-if="video.favorite" ng-click="favorite($index)">
-          <span class="glyphicon glyphicon-star" aria-hidden="true"></span> favorite
-        </button>
-        
-        <button type="button" class="btn btn-danger delete-button" ng-click="delete($index)">
-          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> delete
-        </button>
+      <div class="jumbotron">
+        Title: <input type="text" ng-model="title" placeholder="title"> <br> <br>
+        URL: <input type="text" ng-model="url" placeholder="url"> <br> <br>
+        <div class="btn btn-info btn-sm" ng-click="addVideo(title, url)">Submit</div>
         
       </div>
+      
+      <ul>  
+        <li ng-repeat="video in videos" class="center" ng-if="video.favorite">
+          <p>Title: {{video.title}}</p>
+          <p>URL: {{video.url}}</p>    
+        </li>
+      </ul>
+      
     </div>
     
   </div>
