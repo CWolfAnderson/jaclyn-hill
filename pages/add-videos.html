@@ -20,22 +20,21 @@
   
   <div class="container">
     
-    
     <div class="main" ng-controller="videoController">
       
       <div class="jumbotron">
+        <a href="../index.html" class="btn btn-info btn-sm">Home</a> <br> <br>
         Title: <input type="text" ng-model="title" placeholder="title"> <br> <br>
         URL: <input type="text" ng-model="url" placeholder="url"> <br> <br>
-        <div class="btn btn-info btn-sm" ng-click="addVideo(title, url)">Submit</div>
-        
+        <div class="btn btn-success btn-sm" ng-click="addVideo(title, url)">Submit</div>        
       </div>
       
-      <ul>  
-        <li ng-repeat="video in videos" class="center" ng-if="video.favorite">
-          <p>Title: {{video.title}}</p>
-          <p>URL: {{video.url}}</p>    
+      <ol>  
+        <li ng-repeat="video in videos" class="center">
+          <p><strong>Title:</strong> {{video.title}}</p>
+          <p><strong>URL:</strong> {{video.url}}</p>    
         </li>
-      </ul>
+      </ol>
       
     </div>
     
